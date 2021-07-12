@@ -1,0 +1,101 @@
+﻿@model CryptoArticleReader.Models.CryptoModel
+
+@{ ViewData["Title"] = "Home Page"; }
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="row text-center">
+    <div class="col-12 bg-dark text-center">
+        <h2 style="color: white;" class="pt-5 pb-5">Crypto article Reader</h2>
+    </div>
+</div>
+<div class="row text-center mt-5">
+    <form method="post">
+        <div>
+            <input asp-for="URL" type="url" />
+            <input type="submit" value="Analyse" />
+        </div>
+        <div class="bg-dark mt-3 title-style-divs">
+            <div><h3>does going up or down or even result</h3></div>
+            <div><h3>Which Cryptocurrency</h3></div>
+            <div><h3>does having image or not</h3></div>
+        </div>
+       @if (Model != null)
+        {
+            <div style="display:flex;">
+               @if (Model.Positivewords > Model.Negativewords)
+                {
+                    <h1 style="padding: 50px 150px 0px 125px; border: solid 2px;">it's going up</h1> 
+                }
+                else if (Model.Positivewords < Model.Negativewords)
+                {
+                    <h1 style="padding: 50px 117px 0px 125px; border: solid 2px;">it's going down</h1> 
+                }
+                else
+                {
+                    <h1 style="padding: 50px 117px 0px 125px; border: solid 2px;">even result</h1>
+                }
+               @if (Model.BTC > Model.ADA && Model.BTC > Model.BNB && Model.BTC > Model.DOGE && Model.BTC > Model.DOT &&
+                    Model.BTC > Model.ETH && Model.BTC > Model.LTC && Model.BTC > Model.USDC)
+                {
+                    <div style="padding: 50px 65px 0px 60px; border: solid 2px; margin-bottom: 8px;">
+                        <h1>Bitcoin</h1>
+                    </div> 
+                    if (Model.Img != 0)
+                    {
+                        <div style="padding: 0px 65px 0px 60px; border: solid 2px; margin-bottom: 8px; ">
+                            <img style="width:250px; height:250px;" src="~/Images/bit.jpg" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="padding: 0px 65px 0px 60px; border: solid 2px; margin-bottom: 8px; ">
+                            <h1>No images</h1>
+                        </div>
+                    }
+                }
+               @if (Model.DOGE > Model.ADA && Model.DOGE > Model.BNB && Model.DOGE > Model.BTC && Model.DOGE > Model.DOT &&
+                    Model.DOGE > Model.ETH && Model.DOGE > Model.LTC && Model.DOGE > Model.USDC)
+                {
+                   <div style="padding: 50px 65px 0px 60px; border: solid 2px; margin-bottom: 8px;">
+                       <h1>Dogecoin</h1>
+                   </div> 
+                   if (Model.Img != 0)
+                   {
+                   <div style="padding: 0px 65px 0px 60px; border: solid 2px; margin-bottom: 8px; ">
+                       <img style="width:250px; height:250px;" src="~/Images/degecoin.jpg" />
+                   </div>
+                   }
+                   else
+                   {
+                   <div style="padding: 0px 65px 0px 60px; border: solid 2px; margin-bottom: 8px; ">
+                       <h1>No images</h1>
+                   </div>
+                   }
+                }
+               @if (Model.ETH > Model.ADA && Model.ETH > Model.BNB && Model.ETH > Model.DOGE && Model.ETH > Model.DOT && 
+                   Model.ETH > Model.BTC &&Model.ETH > Model.LTC && Model.ETH > Model.USDC)
+                {
+                   <div style="padding: 50px 65px 0px 60px; border: solid 2px; margin-bottom: 8px;">
+                       <h1>Etherium</h1>
+                   </div> 
+                   if (Model.Img != 0)
+                   {
+                   <div style="padding: 0px 65px 0px 60px; border: solid 2px; margin-bottom: 8px; ">
+                       <img style="width:250px; height:250px;" src="~/Images/Eth.jpg" />
+                   </div> 
+                   }
+                   else
+                   {
+                   <div style="padding: 0px 65px 0px 60px; border: solid 2px; margin-bottom: 8px; ">
+                       <h1>No images</h1>
+                   </div>
+                   }
+                }
+            </div>
+        }
+    </form>
+</div>
